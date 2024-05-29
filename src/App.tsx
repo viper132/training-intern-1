@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import mainBg from './assets/bg.png';
-import './App.css';
+import { useState } from "react";
+import mainBg from "./assets/bg.png";
+import "./App.css";
+import Button from "./components/Button";
 
 console.log(mainBg);
 const App = () => {
   const [user, setUser] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleSubmit = () => {
@@ -14,12 +15,13 @@ const App = () => {
   };
 
   const handleUser =
-    (type: 'username' | 'password') => (ev: React.ChangeEvent<HTMLInputElement>) => {
+    (type: "username" | "password") =>
+    (ev: React.ChangeEvent<HTMLInputElement>) => {
       setUser({ ...user, [type]: ev.target.value });
     };
   return (
     <div
-      className={`flex items-center justify-center h-screen bg-no-repeat`}
+      className={`flex items-center justify-center h-screen bg-no-repeat bg-cover`}
       style={{
         backgroundImage: `url("${mainBg}")`,
       }}
@@ -28,24 +30,32 @@ const App = () => {
         <input
           type="text"
           placeholder="Username"
-          onChange={handleUser('username')}
+          onChange={handleUser("username")}
           style={{
-            backgroundColor: 'GrayText',
-            color: 'white',
+            backgroundColor: "GrayText",
+            color: "white",
           }}
         />
-        <input
+        <input 
           type="text"
           placeholder="Password"
-          onChange={handleUser('password')}
+          onChange={handleUser("password")}
           style={{
-            backgroundColor: 'GrayText',
-            color: 'white',
+            backgroundColor: "GrayText",
+            color: "white",
           }}
         />
-        <button className="hover:bg-red-500 active:bg-red-400" onClick={handleSubmit}>
+        
+          
+
+        <button
+          className="hover:bg-red-500 active:bg-red-400"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
+        <Button text="login"/>
+        <Button text="register"/>
       </div>
     </div>
   );
