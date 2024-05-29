@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import mainBg from './assets/bg.png';
 import './App.css';
+import '../src/components/input'
+import Input from '../src/components/input';
+
 
 console.log(mainBg);
 const App = () => {
@@ -19,29 +22,15 @@ const App = () => {
     };
   return (
     <div
-      className={`flex items-center justify-center h-screen bg-no-repeat`}
+      className={`flex items-center justify-center h-screen bg-cover bg-no-repeat`}
       style={{
         backgroundImage: `url("${mainBg}")`,
       }}
     >
       <div className="flex flex-col gap-[5px] rounded-[20px] p-[10px] shadow-2xl">
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={handleUser('username')}
-          style={{
-            backgroundColor: 'GrayText',
-            color: 'white',
-          }}
+        <Input placeholder='username' type='text'
         />
-        <input
-          type="text"
-          placeholder="Password"
-          onChange={handleUser('password')}
-          style={{
-            backgroundColor: 'GrayText',
-            color: 'white',
-          }}
+        <Input placeholder='password' type='password'
         />
         <button className="hover:bg-red-500 active:bg-red-400" onClick={handleSubmit}>
           Submit
