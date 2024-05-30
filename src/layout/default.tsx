@@ -1,6 +1,7 @@
 
 import { Outlet, useNavigate } from 'react-router-dom';
-import ButtonMenu from '../components/menu';
+import ButtonMenu from '../components/Menu';
+
 
 const DefaultLayout = () => {
     const handleSubmit = () => {
