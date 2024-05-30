@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 interface props {
   icon: ReactNode;
-  type: 'text' | 'password';
+  type: 'text' | 'password' | 'number';
   placeholder: string;
   onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void;
 }
