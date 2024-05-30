@@ -1,43 +1,47 @@
-import userStore from '../store/userStore';
-import Input from '../components/Input';
+
+import mainBg from '../assets/bg.png';
+import '../App.css';
+import Input from '../components/input';
 import Button from '../components/Button';
-import mainBg from '../assets/bg.jpg';
-import { FaUserLock } from 'react-icons/fa';
-import { FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
-  const { username, password, handleUser } = userStore();
-  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    navigate('/');
-  };
-  return (
-    <div
-      className="flex items-center justify-center h-screen bg-cover bg-no-repeat bg-center "
-      style={{
-        backgroundImage: `url("${mainBg}")`,
-      }}
-    >
-      <div className="bg-black/65 flex flex-col gap-[7px] rounded-md px-2 py-8 shadow-2xl shadow-yellow-600">
-        <p className="text-xl text-white font-bold text-center">Login</p>
-        <Input
-          icon={<FaUserLock />}
-          type="text"
-          placeholder="username"
-          onChange={handleUser('username')}
-        />
-        <Input
-          icon={<FaLock />}
-          type="password"
-          placeholder="password"
-          onChange={handleUser('password')}
-        />
-        <Button onPencet={handleSubmit}>Login</Button>
-      </div>
-    </div>
-  );
+console.log(mainBg);
+const LoginPage = () => {
+    // const [user, setUser] = useState({
+    //     username: '',
+    //     password: '',
+    // });
+
+    const handleSubmit = () => {
+        navigate("/");
+    };
+
+    // const handleUser =
+    //     (type: 'username' | 'password') => (ev: React.ChangeEvent<HTMLInputElement>) => {
+    //         setUser({ ...user, [type]: ev.target.value });
+    //     };
+
+    const navigate = useNavigate();
+
+
+    return (
+        <div
+            className={`flex items-center justify-center h-screen bg-cover bg-no-repeat`}
+            style={{
+                backgroundImage: `url("${mainBg}")`,
+            }}
+        >
+            <div className="bg-cyan-500/20  flex flex-col gap-[20px] rounded-[20px] p-[1px] px-[40px] py-[20px] shadow-2xl">
+                <div className='text-center text-white font-bold text-[40px]'>Login</div>
+                <Input placeholder='username' type='text'
+                />
+                <Input placeholder='password' type='password'
+                />
+                <Button text='Submit' onPencet={handleSubmit} />
+            </div>
+        </div>
+    );
 };
 
 export default LoginPage;
