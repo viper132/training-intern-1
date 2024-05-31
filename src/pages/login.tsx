@@ -7,7 +7,7 @@ import { FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  const { username, password, handleUser } = userStore();
+  const { handleUser } = userStore();
   const navigate = useNavigate();
 
   const handleSubmit = () => {

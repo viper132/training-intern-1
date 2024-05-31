@@ -1,18 +1,15 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import mainBg from '../assets/bg.jpg';
 import Menu from '../components/Menu';
-import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { HiHome } from 'react-icons/hi';
 import { MdAccountBalance } from 'react-icons/md';
+import { BiLogOut } from 'react-icons/bi';
+import userStore from '../store/userStore';
 
 const DefaultLayout = () => {
-  const [open, setOpen] = useState(false);
+  const { open, handleOpen } = userStore();
   const navigate = useNavigate();
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
 
   const handleRedirect = (to: string) => () => {
     navigate(to);
@@ -40,6 +37,7 @@ const DefaultLayout = () => {
                 text="Account Management"
                 onClick={handleRedirect('account')}
               />
+              <Menu icon={<BiLogOut />} text="Logout" onClick={handleRedirect('/login')} />
             </>
           )}
         </div>
