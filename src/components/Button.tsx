@@ -1,13 +1,19 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-interface Props {
-    text: string;
-    onPencet: VoidFunction;
+interface props {
+  children: ReactNode;
+  onPencet: VoidFunction;
 }
 
-const Button: FC<Props> = ({ text, onPencet }) => {
-    return <button onClick={onPencet} className="bg-cyan-700 hover:bg-slate-400  px-4 py-2 text-white rounded-[20px] " >{text}</button>;
-
-}
+const Button: FC<props> = ({ children, onPencet }) => {
+  return (
+    <button
+      className="bg-blue-700 rounded-md text-white h-7 shadow-md shadow-blue-700 px-4"
+      onClick={onPencet}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default Button;
