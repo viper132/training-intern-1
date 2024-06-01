@@ -4,7 +4,7 @@ import Menu from '../components/Menu';
 import { FiMenu } from 'react-icons/fi';
 import { HiHome } from 'react-icons/hi';
 import { MdAccountBalance } from 'react-icons/md';
-import { BiLogOut } from 'react-icons/bi';
+import { BiCalculator, BiLogOut } from 'react-icons/bi';
 import userStore from '../store/userStore';
 
 const DefaultLayout = () => {
@@ -37,11 +37,17 @@ const DefaultLayout = () => {
                 text="Account Management"
                 onClick={handleRedirect('account')}
               />
+              <Menu
+                icon={<BiCalculator />}
+                text="Calculator"
+                onClick={handleRedirect('/calculator')}
+              />
+
               <Menu icon={<BiLogOut />} text="Logout" onClick={handleRedirect('/login')} />
             </>
           )}
         </div>
-        <main>
+        <main className="w-full max-h-[calc(100vh-18px)] overflow-auto">
           <Outlet />
         </main>
       </div>

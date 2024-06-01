@@ -3,6 +3,7 @@ import LoginPage from '../pages/login';
 import HomePage from '../pages/home';
 import DefaultLayout from '../layout/default';
 import AccountPage from '../pages/account';
+import CalculatorPage from '../pages/calculator';
 
 const routerConfig = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const routerConfig = createBrowserRouter([
       {
         path: '/account',
         element: <AccountPage />,
+      },
+      {
+        path: '/calculator',
+        element: <CalculatorPage />,
       },
     ],
   },
